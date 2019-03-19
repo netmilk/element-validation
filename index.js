@@ -48,7 +48,7 @@ entries.forEach((entry) => {
 
       if (result.response.headers) {
         result.response.headers.forEach((item) => {
-          expectedResponseHeaders[item.name] = item.value;
+          expectedResponseHeaders[item.key] = item.value;
         });
       }
 
@@ -68,6 +68,7 @@ entries.forEach((entry) => {
         headers: actualRequestHeaders,
         body: request.postData.text,
       };
+
       const expectedRequest = {
         headers: expectedRequestHeaders,
         body: result.request.content,
@@ -79,6 +80,7 @@ entries.forEach((entry) => {
         body: response.content.text,
         statusCode: response.status,
       };
+
       const expectedResponse = {
         headers: expectedResponseHeaders,
         body: result.response.content,
