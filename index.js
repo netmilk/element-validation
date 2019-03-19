@@ -48,13 +48,13 @@ entries.forEach((entry) => {
 
       if (result.response.headers) {
         response.headers.forEach((item) => {
-          actualRequestHeaders[item.name] = item.value;
+          expectedResponseHeaders[item.name] = item.value;
         });
       }
 
-      if (response.headers) {
-        response.headers.forEach((item) => {
-          expectedResponseHeaders[item.name] = item.value;
+      if (request.headers) {
+        request.headers.forEach((item) => {
+          actualRequestHeaders[item.name] = item.value;
         });
       }
 
