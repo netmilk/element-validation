@@ -47,7 +47,7 @@ entries.forEach((entry) => {
       }
 
       if (result.response.headers) {
-        response.headers.forEach((item) => {
+        result.response.headers.forEach((item) => {
           expectedResponseHeaders[item.name] = item.value;
         });
       }
@@ -68,24 +68,22 @@ entries.forEach((entry) => {
         headers: actualRequestHeaders,
         body: request.postData.text,
       };
-
       const expectedRequest = {
         headers: expectedRequestHeaders,
         body: result.request.content,
-        bodySchema: result.request.bodySchema,      };
+        bodySchema: result.request.bodySchema,
       };
-     
+
       const actualResponse = {
         headers: actualResponseHeaders,
         body: response.content.text,
         statusCode: response.status,
       };
-      
       const expectedResponse = {
         headers: expectedResponseHeaders,
         body: result.response.content,
         statusCode: result.response.statusCode,
-        bodySchema: result.request.bodySchema,
+        bodySchema: result.response.bodySchema,
       };
 
       return Promise.all([
