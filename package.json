@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^2.19.0",
-    "element-routing": "^0.0.2",
+    "element-routing": "^0.0.3",
     "gavel": "^2.2.0",
     "jsonpath": "^1.0.0",
     "tap": "^12.1.0"
